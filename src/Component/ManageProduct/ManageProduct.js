@@ -9,7 +9,7 @@ const ManageProduct = () => {
     const [manageProducts, setManageProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://aqueous-headland-94677.herokuapp.com/products')
         .then(res => res.json())
         .then(data => setManageProducts(data))
     }, [])

@@ -8,7 +8,8 @@ import { useHistory, useLocation } from 'react-router';
 import Header from '../Header/Header';
 
 const Login = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const {value1, value2} = useContext(UserContext);
+    const [loggedInUser, setLoggedInUser] = value1;
     const history = useHistory();
     const location = useLocation();
     const { from } = location.state || { from: { pathname: "/" } };

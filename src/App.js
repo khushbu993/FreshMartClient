@@ -10,17 +10,20 @@ import NotFound from './Component/NotFound/NotFound';
 import AddProduct from './Component/AddProduct/AddProduct';
 import ManageProduct from './Component/ManageProduct/ManageProduct';
 import CheckOut from './Component/CheckOut/CheckOut';
+import PrivateRoute from './Component/PrivateRoute/PrivateRoute';
 import { createContext } from 'react';
 import { useState } from 'react';
 import Login from './Component/Login/Login';
+import Order from './Component/Order/Order';
 
 export const UserContext = createContext();
 
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
+  const [checkout, setCheckOut] = useState([]);
   return (
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+    <UserContext.Provider value={{value1: [loggedInUser, setLoggedInUser], value2: [checkout, setCheckOut]}}>
       <Router>
         <Switch>
           <Route path='/home'>
@@ -29,12 +32,15 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
-          <Route path='/checkOut/:productId'>
+          <PrivateRoute path="/order">
+            <Order />
+          </PrivateRoute>
+          <PrivateRoute path='/checkOut/:productId'>
             <CheckOut />
-          </Route>
-          <Route path='/addProduct'>
+          </PrivateRoute>
+          <PrivateRoute path='/addProduct'>
             <AddProduct />
-          </Route>
+          </PrivateRoute>
           <Route path='/manageProduct'>
             <ManageProduct />
           </Route>

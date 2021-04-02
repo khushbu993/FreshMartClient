@@ -1,14 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import { UserContext } from '../../App';
 import CheckoutBody from '../CheckoutBody/CheckoutBody';
 import Header from '../Header/Header';
 
 const CheckOut = () => {
     const { productId } = useParams();
-    const [checkout, setCheckOut] = useState([]);
+    const {value1, value2} = useContext(UserContext);
+    const [checkout, setCheckOut] = value2;
+    console.log(checkout)
+    
 
     useEffect(() => {
-        fetch(`http://localhost:5000/checkedProduct/${productId}`)
+        fetch(`https://aqueous-headland-94677.herokuapp.com/checkedProduct/${productId}`)
         .then(res => res.json())
         .then(data => setCheckOut(data))
     }, [])

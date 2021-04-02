@@ -11,7 +11,7 @@ const Products = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://aqueous-headland-94677.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setProducts(data))
         setLoading(true)

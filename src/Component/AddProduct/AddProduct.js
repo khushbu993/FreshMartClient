@@ -18,7 +18,7 @@ const AddProduct = () => {
             price: data.price,
             imageURL: imageURL
         }
-        const url = `http://localhost:5000/addProduct`;
+        const url = `https://aqueous-headland-94677.herokuapp.com/addProduct`;
         console.log(data);
         fetch(url, {
             method: 'POST',
