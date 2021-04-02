@@ -1,0 +1,13 @@
+.fa-edit-icon{
+    color: green;
+}
+.fa-edit-icon:hover{
+    color: greenyellow;
+}
+.fa-delete-icon{
+    color: maroon;
+    margin-left: 6px;
+}
+.fa-delete-icon:hover{
+    color: rgb(255, 0, 0);
+}

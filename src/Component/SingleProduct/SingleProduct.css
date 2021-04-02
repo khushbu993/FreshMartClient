@@ -1,0 +1,19 @@
+.single-product{
+    width: 350px;
+    height: 400px;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+.single-product img{
+    width: 60%;
+    height: 60%;
+    margin-top: 10px;
+    margin-left: 68px;
+}
+.single-product h3{
+    text-align: center;
+    color: #FA0787;
+}
+.price{
+    color: orange;
+}
