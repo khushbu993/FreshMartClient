@@ -6,15 +6,15 @@ import Header from '../Header/Header';
 
 const CheckOut = () => {
     const { productId } = useParams();
-    const {value1, value2} = useContext(UserContext);
+    const { value2 } = useContext(UserContext);
     const [checkout, setCheckOut] = value2;
-    console.log(checkout)
+    // console.log(checkout)
     
 
     useEffect(() => {
         fetch(`https://aqueous-headland-94677.herokuapp.com/checkedProduct/${productId}`)
         .then(res => res.json())
-        .then(data => setCheckOut(data))
+        .then(data => setCheckOut(data[0]))
     }, [])
     return (
         <div className="container">
@@ -31,7 +31,7 @@ const CheckOut = () => {
                             </tr>
                         </thead>
                         {
-                            checkout.map(item => <CheckoutBody item={item}></CheckoutBody>)
+                            <CheckoutBody item={checkout}></CheckoutBody>
                         }
                     </table>
                 </div>

@@ -2,12 +2,11 @@ import React from 'react';
 import './TableBody.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
 
 const TableBody = (props) => {
     const {name, quantity, price, _id} = props.manageProduct;
     const deleteEvent = _id => {
-        fetch('https://aqueous-headland-94677.herokuapp.com/deleteProduct/${_id}', {
+        fetch(`https://aqueous-headland-94677.herokuapp.com/deleteProduct/${_id}`, {
             method: 'DELETE'
         })
         .then(res => res.json())

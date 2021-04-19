@@ -26,6 +26,7 @@ const Login = () => {
         firebase.auth()
             .signInWithPopup(provider)
             .then((result) => {
+                console.log(result.user)
                 const { displayName, email } = result.user;
                 const signedInUser = {
                     name: displayName, email
@@ -45,7 +46,7 @@ const Login = () => {
             <Header></Header>
             <div className="row">
                 <div className="col-md-12 d-flex justify-content-center mt-5">
-                    <button onClick={handleGoogleSignIn} class="btn btn-warning" type="button">Google Sign In</button>
+                    <button onClick={handleGoogleSignIn} className="btn btn-warning" type="button">Google Sign In</button>
                 </div>
             </div>
         </div>

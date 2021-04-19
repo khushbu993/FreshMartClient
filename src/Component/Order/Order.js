@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { UserContext } from '../../App';
 import Header from '../Header/Header';
 
@@ -7,15 +7,14 @@ const Order = () => {
     const { value1, value2 } = useContext(UserContext);
     const [loggedInUser, setLoggedInUser] = value1;
     const [checkout, setCheckOut] = value2;
-    console.log(checkout)
+    console.log(checkout);
 
-
-    const [order, setorder] = useState({
+    const [order, setOrder] = useState({
         userName: "",
         userEmail: "",
-        bookName: "",
-        authorName: "",
-        quantity: 1,
+        name: "",
+        price: "",
+        quantity: "",
         totalPrice: "",
         orderTime: ""
     });
@@ -30,9 +29,9 @@ const Order = () => {
             totalPrice: checkout.price,
             orderTime: new Date()
         }
-        setCheckOut(newOrder)
+        setOrder(newOrder)
 
-        fetch('https://aqueous-headland-94677.herokuapp.com//addOrder', {
+        fetch('https://aqueous-headland-94677.herokuapp.com/addOrder', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -44,6 +43,9 @@ const Order = () => {
                 if (data) {
                     alert('Your Order placed successfully');
                 }
+            })
+            .catch(error => {
+                alert(error)
             })
 
 }

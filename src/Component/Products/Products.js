@@ -21,7 +21,7 @@ const Products = () => {
         <div className="container">
             <div className="row">
                 {
-                    loading ? (products.map(product => <SingleProduct product={product}></SingleProduct>)) :
+                    loading ? (products.map(product => <SingleProduct product={product} ></SingleProduct>)) :
                         (<span className="spinner"><FontAwesomeIcon icon={faSync} /> Loading...</span>)
                 }
             </div>
